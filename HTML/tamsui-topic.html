@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淡水觀光議題 - 人文科展暨小論文資訊平台</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+    /* SPA 導航頁籤 */
+    .silvertech-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; border-bottom: 2px solid #ddd; padding-bottom: 15px; }
+    .silvertech-tabs button { background: transparent; border: 1px solid #ddd; color: #555; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+    .silvertech-tabs button:hover { background: var(--bg-light); border-color: var(--harbor-blue); }
+    .silvertech-tabs button.active { background: var(--harbor-blue); color: white; border-color: var(--harbor-blue); box-shadow: 0 4px 10px rgba(11, 60, 93, 0.2); }
+    
+    /* 內容切換動畫 */
+    .page-content { display: none; animation: fadeIn 0.4s ease; }
+    .page-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* 專題卡片 */
+    .card-glass { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+    
+    /* FAQ 手風琴 */
+    .accordion-item summary { padding: 15px 20px; font-weight: bold; color: var(--harbor-blue); cursor: pointer; background: #fafafa; }
+    .accordion-content { padding: 20px; color: #555; line-height: 1.6; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Tamsui Research Logo">
+                Tamsui Research
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="science-fair.html">科展新手村</a></li>
+                <li><a href="tamsui-topic.html" style="color: var(--twilight-orange);">淡水觀光議題</a></li>
+                <li><a href="field-research.html">實地考察指引</a></li>
+                <li><a href="resources.html">工具箱與資源</a></li>
+                <li><a href="sitemap.html">網站地圖</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 50px 10%; background-color: var(--bg-light);">
+        
+        <div class="breadcrumb-nav">
+            <div>
+                <a href="index.html">首頁</a> > <a href="tamsui-topic.html">淡水觀光議題</a> > <span id="breadcrumb-current" style="color: #888;">專題首頁</span>
+            </div>
+            <div>
+                <a href="javascript:history.back()">返回上一層</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="color: var(--harbor-blue);">波光粼粼，觀光有感</h1>
+            <p style="color: #666; margin-top: 10px;">淡水地區觀光效益與影響的深度專題研究，從數據到田野，帶你全面理解觀光產業的雙面刃。</p>
+        </div>
+
+        <div class="silvertech-tabs" id="silvertech-tabs">
+            <button class="active" data-page="home">專題首頁</button>
+            <button data-page="topics">核心議題解析</button>
+            <button data-page="sciencefair">研究方法指南</button>
+            <button data-page="resources">核心文獻資源</button>
+            <button data-page="faq">主題 FAQ</button>
+        </div>
+
+        <div id="page-home" class="page-content active">
+            <div class="card-glass" style="text-align: center; margin-bottom: 40px; padding: 40px 20px;">
+                <h2 style="font-size: 2rem; color: var(--harbor-blue); margin-bottom: 15px;">淡水地區觀光效益與影響探討</h2>
+                <p style="color: #555; max-width: 750px; margin: 0 auto 30px auto; line-height: 1.8;">
+                    淡水，是台灣最具歷史縱深的河口小鎮。年均超過 800 萬人次的旅客，在帶來龐大經濟活水的同時，也對當地交通、生態與社區文化造成深遠衝擊。本專題將從多元角度深入分析。
+                </p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="background-color: rgba(230, 126, 34, 0.1); color: var(--twilight-orange); border: 1px solid rgba(230, 126, 34, 0.2); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: bold;">#觀光效益</span>
+                    <span style="background-color: rgba(11, 60, 93, 0.1); color: var(--harbor-blue); border: 1px solid rgba(11, 60, 93, 0.2); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: bold;">#環境衝擊</span>
+                    <span style="background-color: rgba(54, 207, 201, 0.1); color: #36cfc9; border: 1px solid rgba(54, 207, 201, 0.2); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: bold;">#社區永續</span>
+                </div>
+            </div>
+
+            <h3 style="color: var(--harbor-blue); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 25px;">🛠️ 研究輔助工具</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px;">
+                <div class="card-glass" style="border-top: 4px solid var(--twilight-orange);">
+                    <h4 style="font-size: 1.15rem; color: var(--twilight-orange); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="clock"></i> 科展截稿倒數
+                    </h4>
+                    <p style="font-size: 0.85rem; color: #666; margin: 0;">距離 2026 全國科展截稿還有：</p>
+                    <div id="countdown-display" style="font-size: 1.8rem; font-weight: bold; color: var(--harbor-blue); margin: 15px 0;">計算中...</div>
+                    <span style="font-size: 0.75rem; background-color: #eee; color: #555; padding: 4px 10px; border-radius: 6px;">※請妥善規劃田野調查進度</span>
+                </div>
+
+                <div class="card-glass" style="border-top: 4px solid var(--harbor-blue);">
+                    <h4 style="font-size: 1.15rem; color: var(--harbor-blue); margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="clipboard-list"></i> 淡水研究方法建議
+                    </h4>
+                    <ul style="font-size: 0.9rem; display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; margin: 0; color: #555;">
+                        <li>🗳️ <strong>問卷調查法</strong>：遊客 vs 居民意見對比</li>
+                        <li>📊 <strong>統計分析法</strong>：歷年旅客數與效益分析</li>
+                        <li>🌿 <strong>田野觀察法</strong>：生態衝擊與人流觀測</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div class="card-glass">
+                    <h3 style="color: var(--harbor-blue); margin: 0 0 20px 0;">📌 本專題研究目的</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; color: #555;">
+                        <li><strong>1. 效益量化分析</strong>：評估觀光帶來的直接經濟收益與就業效果。</li>
+                        <li><strong>2. 衝擊全面盤點</strong>：記錄交通壅塞、噪音與居民生活品質變化。</li>
+                        <li><strong>3. 永續方案提案</strong>：結合國際案例，提出觀光管理改善建議。</li>
+                    </ul>
+                </div>
+                <div class="card-glass">
+                    <h3 style="color: var(--harbor-blue); margin: 0 0 20px 0;">🌟 研究特色與亮點</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; color: #555;">
+                        <li><strong style="color: var(--twilight-orange);">✔ 多元視角整合</strong>：涵蓋遊客、居民、商家三方視角的調查。</li>
+                        <li><strong style="color: var(--twilight-orange);">✔ 跨學科研究</strong>：結合地理學、經濟學、生態學與社會學。</li>
+                        <li><strong style="color: var(--twilight-orange);">✔ 國際比較案例</strong>：引入京都、威尼斯等過度旅遊應對策略。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-topics" class="page-content">
+            <h2 style="color: var(--harbor-blue);">核心議題深入解析</h2>
+            <p style="color: #666;">針對淡水觀光最受關注的三大議題進行深度分析，並附上適合科展引用的文獻資源。</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div class="card-glass">
+                    <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">💰</span>
+                    <h3 style="margin-top: 0; color: var(--harbor-blue);">觀光經濟效益分析</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #555; margin-bottom: 20px;">淡水每年吸引逾 800 萬旅客，帶動餐飲與零售業商機。研究探討觀光乘數效果與直接/間接效益。</p>
+                    <div style="border-top: 1px solid #ddd; padding-top: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: bold; color: #888;">📋 推薦文獻來源：</span>
+                        <ul style="font-size: 0.85rem; color: var(--harbor-blue); padding-left: 20px; margin-top: 8px; line-height: 1.8;">
+                            <li>新北市觀光旅遊局年度報告</li>
+                            <li>交通部觀光署產業統計</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-glass">
+                    <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">🌿</span>
+                    <h3 style="margin-top: 0; color: var(--harbor-blue);">環境生態衝擊評估</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #555; margin-bottom: 20px;">過度旅遊對淡水紅樹林生態及垃圾承載量帶來顯著壓力。研究分析環境承載量並提出指標閾值。</p>
+                    <div style="border-top: 1px solid #ddd; padding-top: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: bold; color: #888;">📋 推薦文獻來源：</span>
+                        <ul style="font-size: 0.85rem; color: var(--harbor-blue); padding-left: 20px; margin-top: 8px; line-height: 1.8;">
+                            <li>環境部淡水河流域監測報告</li>
+                            <li>Nature - Tourism Impact</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-glass">
+                    <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">🏘️</span>
+                    <h3 style="margin-top: 0; color: var(--harbor-blue);">社區文化與居民感受</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #555; margin-bottom: 20px;">觀光業繁榮導致在地文化「商品化」，居民生活成本上升。透過問卷量化居民對觀光發展的滿意度。</p>
+                    <div style="border-top: 1px solid #ddd; padding-top: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: bold; color: #888;">📋 推薦文獻來源：</span>
+                        <ul style="font-size: 0.85rem; color: var(--harbor-blue); padding-left: 20px; margin-top: 8px; line-height: 1.8;">
+                            <li>華藝圖書館居民態度調查</li>
+                            <li>Annals of Tourism Research</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--harbor-blue); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 50px;">💡 研究關鍵詞彙索引 (Thesaurus)</h3>
+            <div class="thesaurus-grid" style="margin-top: 25px;">
+                <div class="thesaurus-card">
+                    <div>
+                        <div class="thesaurus-title-row">
+                            <span class="thesaurus-title">觀光乘數效果</span>
+                            <span class="thesaurus-english">Tourism Multiplier Effect</span>
+                        </div>
+                        <p class="thesaurus-desc">每一元觀光消費，透過產業上下游連結，在地方經濟中產生數倍的總效益。</p>
+                    </div>
+                </div>
+                <div class="thesaurus-card">
+                    <div>
+                        <div class="thesaurus-title-row">
+                            <span class="thesaurus-title">過度旅遊</span>
+                            <span class="thesaurus-english">Overtourism</span>
+                        </div>
+                        <p class="thesaurus-desc">遊客數量超出當地環境與基礎設施的可承受上限，導致生活品質嚴重下降的現象。</p>
+                    </div>
+                </div>
+                <div class="thesaurus-card">
+                    <div>
+                        <div class="thesaurus-title-row">
+                            <span class="thesaurus-title">文化商品化</span>
+                            <span class="thesaurus-english">Cultural Commodification</span>
+                        </div>
+                        <p class="thesaurus-desc">傳統文化與習俗被包裝成可販賣的旅遊「商品」，使文化失去原有的精神意涵。</p>
+                    </div>
+                </div>
+                <div class="thesaurus-card">
+                    <div>
+                        <div class="thesaurus-title-row">
+                            <span class="thesaurus-title">永續觀光</span>
+                            <span class="thesaurus-english">Sustainable Tourism</span>
+                        </div>
+                        <p class="thesaurus-desc">在滿足當代旅遊需求的同時，兼顧環境保護、社區共榮與經濟發展的模式。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-sciencefair" class="page-content">
+            <h2 style="color: var(--harbor-blue);">🔬 研究方法指南與科展建議</h2>
+            <p style="color: #666; margin-bottom: 30px;">以「淡水地區觀光效益與影響」為主題，提供研究設計與 APA 引用的完整指引。</p>
+
+            <div class="card-glass" style="margin-bottom: 25px;">
+                <h3 style="color: var(--twilight-orange); margin: 0 0 15px 0;">📐 研究設計建議框架</h3>
+                <ul style="color: #555; line-height: 1.8; font-size: 0.95rem; padding-left: 20px;">
+                    <li><strong>量化部分：</strong>問卷調查（Likert 量表）+ 官方統計數據回歸分析。</li>
+                    <li><strong>質化部分：</strong>半結構式訪談（居民 / 商家 / 觀光局官員）。</li>
+                    <li><strong>田野觀察：</strong>現場垃圾量秤重、交通流量計數、噪音分貝測量。</li>
+                    <li style="color: #d35400; font-weight: bold; margin-top: 10px;">⚠️ 倫理規範：涉及訪談真實居民或遊客，必須簽署「受試者知情同意書」，且不得洩漏個資隱私。</li>
+                </ul>
+            </div>
+
+            <div class="card-glass" style="margin-bottom: 25px;">
+                <h3 style="color: var(--twilight-orange); margin: 0 0 15px 0;">📝 APA 第七版引用範例</h3>
+                <div style="background: #fafafa; border-left: 4px solid var(--harbor-blue); padding: 15px; margin-bottom: 10px;">
+                    <strong>【政府報告】</strong><br>
+                    <code style="font-size: 0.9rem; color: #444;">交通部觀光署（2024）。<em>中華民國 113 年觀光統計年報</em>。交通部觀光署。</code>
+                </div>
+                <div style="background: #fafafa; border-left: 4px solid var(--twilight-orange); padding: 15px;">
+                    <strong>【期刊論文】</strong><br>
+                    <code style="font-size: 0.9rem; color: #444;">Wang, Y., & Chen, L. (2022). Resident perceptions of tourism impacts. <em>Annals of Tourism Research</em>, 94, 103–112.</code>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-resources" class="page-content">
+            <h2 style="color: var(--harbor-blue);">📚 核心文獻資源索引</h2>
+            <p style="color: #666; margin-bottom: 30px;">撰寫淡水觀光小論文必備的官方統計資源庫：</p>
+            
+            <div class="card-glass">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <tr style="background: var(--harbor-blue); color: white;">
+                        <th style="padding: 12px; border-bottom: 1px solid #ddd;">資源類型</th>
+                        <th style="padding: 12px; border-bottom: 1px solid #ddd;">核心名稱</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">政府官方統計</td>
+                        <td style="padding: 15px; border-bottom: 1px solid #eee;"><a href="https://www.taiwan.net.tw" target="_blank" style="color: var(--twilight-orange); font-weight: bold; text-decoration: none;">交通部觀光署</a> (全台觀光收益資料)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">中文核心期刊</td>
+                        <td style="padding: 15px; border-bottom: 1px solid #eee;"><a href="https://www.airitilibrary.com/" target="_blank" style="color: var(--twilight-orange); font-weight: bold; text-decoration: none;">華藝線上圖書館</a> (涵蓋管理學與地理學論文)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">環境監測數據</td>
+                        <td style="padding: 15px; border-bottom: 1px solid #eee;"><a href="https://www.epa.gov.tw" target="_blank" style="color: var(--twilight-orange); font-weight: bold; text-decoration: none;">環境部開放平台</a> (淡水河水質、空氣品質指標)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="page-faq" class="page-content">
+            <h2 style="color: var(--harbor-blue);">❓ 觀光研究常見問題 FAQ</h2>
+            <p style="color: #666; margin-bottom: 30px;">針對全國中小學科學展覽會 (TWSF) 規則、研究方法與淡水觀光議題選題的常見疑問解答：</p>
+            
+            <div class="accordion-wrapper">
+                <details class="accordion-item">
+                    <summary>Q1. 我們的淡水觀光研究在科展中屬於哪一個學科？評審標準是什麼？</summary>
+                    <div class="accordion-content">
+                        本平台建置的「淡水地區觀光之效益與影響探討」在全國中小學科學展覽會（TWSF）中，屬於<b>「行為與社會科學科」</b>。評審在此學科的核心考量在於：研究主題的<b>科學方法運用</b>、數據的真實性（非造假）、空間或時間異質性的分析深度，以及是否切實遵守問卷/訪談的研究倫理。
+                    </div>
+                </details>
+                
+                <details class="accordion-item">
+                    <summary>Q2. 如何利用本平台的「關鍵詞彙索引典」與外部資料庫進行選題查重？</summary>
+                    <div class="accordion-content">
+                        您可以先在平台的 <a href="thesaurus.html" style="color: var(--harbor-blue); text-decoration: underline; font-weight: bold;">關鍵詞索引頁面</a> 點擊複製您感興趣的膠囊標籤（例如：過度觀光 Overtourism、地方感 Sense of Place）。接著前往<b>「臺灣博碩士論文知識加值系統」</b>或<b>「全國科展歷屆作品資料庫」</b>，利用布林邏輯進行交叉檢索（如：淡水 AND 觀光衝擊）。查閱前人已做過的方向，從中找出尚未被填補的研究空白，避免選題完全重複。
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary>Q3. 進行實地考察（田野調查/街頭問卷）時，有哪些必須注意的「研究倫理」？</summary>
+                    <div class="accordion-content">
+                        依據學術倫理規範，街頭施測或質性訪談必須在受測者<b>知情且自願</b>的狀況下進行。問卷開頭必須明確宣告「本資料僅供學術研究，採匿名處理」。若欲對老街店家或輕軌乘客進行拍照佐證，應主動口頭詢問，且在最終報告書中，若拍攝到清晰的人臉，必須做去識別化（馬賽克）處理，以完全尊重受訪者隱私。
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary>Q4. 什麼是文獻評估的「CRAAP 測試法」？如果篩選出來的分數太低該怎麼辦？</summary>
+                    <div class="accordion-content">
+                        CRAAP 是指從<b>即時性 (C)</b>、<b>相關性 (R)</b>、<b>權威性 (A)</b>、<b>準確性 (A)</b> 與<b>目的性 (P)</b> 五大維度評估資料。如果在測試中發現某篇網路部落格文章分數極低（例如缺乏權威性或帶有強烈廣告目的），建議<b>不予引用</b>。您應退回上一層，改從小論文工具箱推薦的官方管道（如交通部觀光署統計資料庫、中文核心期刊等）重新檢索具備審查機制的權威文獻。
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary>Q5. 科展的「作品說明板」與書面報告格式有硬性規定嗎？</summary>
+                    <div class="accordion-content">
+                        有的，全國科展對此有極為嚴格的規格限制。作品說明板（海報）通常為標準的三折板規格（全幅寬 122 公分、高 120 公分、兩側各 61 公分），內容排版必須包含研究動機、方法、圖表數據分析及參考文獻。而書面報告文字與引註格式，強烈建議統一套用 <b>APA 引用格式第七版 (APA 7th)</b>，這也是目前人文社會科學評審最看重的學術誠信指標。
+                    </div>
+                </details>
+            </div>
+        </div>
+        
+
+    </main>
+
+    <footer class="site-footer">
+        <p>人文科展暨小論文資訊平台 © 2026 第六組 | 淡水地區觀光之效益與影響探討</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 啟動 Lucide 圖示
+        lucide.createIcons();
+
+        // SPA 頁籤切換邏輯
+        const tabs = document.querySelectorAll('.silvertech-tabs button');
+        const pages = document.querySelectorAll('.page-content');
+        const breadcrumbCurrent = document.getElementById('breadcrumb-current');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 1. 移除所有的 active 樣式
+                tabs.forEach(t => t.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+                
+                // 2. 將被點擊的按鈕與對應的內容區塊加上 active
+                tab.classList.add('active');
+                document.getElementById('page-' + tab.getAttribute('data-page')).classList.add('active');
+                
+                // 3. 動態更新麵包屑文字
+                breadcrumbCurrent.innerText = tab.innerText;
+            });
+        });
+
+        // 獨立倒數計時器 (針對專題首頁的專屬小工具)
+        function startWidgetCountdown() {
+            const display = document.getElementById('countdown-display');
+            if(!display) return;
+            const target = new Date("2026-07-30 23:59:59").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const dist = target - now;
+                if(dist < 0) { display.innerText = "已截稿！"; return; }
+                const d = Math.floor(dist / (1000 * 60 * 60 * 24));
+                const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                display.innerText = `${d} 天 ${h} 小時`;
+            }, 1000);
+        }
+        
+        // 確保網頁載入後啟動計時器
+        document.addEventListener("DOMContentLoaded", startWidgetCountdown);
+    </script>
+</body>
+</html>
