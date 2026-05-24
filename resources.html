@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>工具箱與資源 - 人文科展暨小論文資訊平台</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+    .keyword-tag { display: inline-block; background: var(--harbor-blue); color: white; padding: 6px 16px; border-radius: 20px; margin: 6px 4px; cursor: pointer; }
+    .keyword-tag:hover { background: var(--twilight-orange); }
+    .thesaurus-panel { display: none; }
+    .thesaurus-panel.active { display: block; }
+    .thesaurus-tab-btn.active { background: var(--harbor-blue); color: white; }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Tamsui Research Logo">
+                Tamsui Research
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="science-fair.html">科展新手村</a></li>
+                <li><a href="tamsui-topic.html">淡水觀光議題</a></li>
+                <li><a href="field-research.html">實地考察指引</a></li>
+                <li><a href="resources.html" style="color: var(--twilight-orange);">工具箱與資源</a></li>
+                <li><a href="sitemap.html">網站地圖</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 50px 10%; background-color: var(--bg-light);">
+        <div class="breadcrumb-nav">
+        <div>
+            <a href="index.html">首頁</a> > 工具箱與資源
+        </div>
+        <div>
+            <a href="javascript:history.back()">返回上一層</a>
+        </div>
+    </div>
+
+        <h1 style="color: var(--harbor-blue);">研究工具箱</h1>
+        
+        <section style="margin: 40px 0;">
+            <h2 style="color: var(--twilight-orange);">CRAAP 資訊評估測試法</h2>
+            <p>在研究過程中，請利用此方法評估您搜集到的參考資源：</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px;">🕒 <strong>即時性 (Currency)</strong>：資訊發布或出版的時間。</li>
+                <li style="margin-bottom: 10px;">🎯 <strong>相關性 (Relevance)</strong>：資訊符合自身需求之程度。</li>
+                <li style="margin-bottom: 10px;">🎖️ <strong>權威性 (Authority)</strong>：資訊來源的可靠性。</li>
+                <li style="margin-bottom: 10px;">✅ <strong>準確性 (Accuracy)</strong>：內容的真實性與正確性。</li>
+                <li style="margin-bottom: 10px;">💡 <strong>目的性 (Purpose)</strong>：資訊存在的原因與中立性。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>推薦學術與政府資源</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: white; border: 1px solid #ddd; padding: 20px;">
+                    <h3>學術資料庫</h3>
+                    <ul>
+                        <li><a href="#">臺灣博碩士論文系統</a></li>
+                        <li><a href="#">華藝線上圖書館 (Airiti)</a></li>
+                        <li><a href="#">Scopus</a></li>
+                    </ul>
+                </div>
+                
+                <div style="background: white; border: 1px solid #ddd; padding: 20px;">
+                    <h3>政府與在地數據</h3>
+                    <ul>
+                        <li><a href="#">新北市政府資料開放平台</a></li>
+                        <li><a href="#">交通部觀光署統計資料庫</a></li>
+                        <li><a href="#">淡水維基館</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+<section id="thesaurus-section" style="margin-top: 50px;">
+            <h2 style="color: var(--harbor-blue); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">💡 互動式關鍵詞彙索引典 <span style="font-size: 0.9rem; color: #888; font-weight: normal;">(點擊膠囊即可自動複製詞彙)</span></h2>
+            
+            <div class="thesaurus-tabs" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px;">
+                <button class="thesaurus-tab-btn active" onclick="switchThesaurus(event, 'thesaurus-core')" style="background: var(--harbor-blue); color: white; border: 1px solid var(--harbor-blue); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s;">📌 核心與廣義詞</button>
+                <button class="thesaurus-tab-btn" onclick="switchThesaurus(event, 'thesaurus-narrow')" style="background: white; color: #555; border: 1px solid #ddd; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s;">🔽 狹義詞彙</button>
+                <button class="thesaurus-tab-btn" onclick="switchThesaurus(event, 'thesaurus-related')" style="background: white; color: #555; border: 1px solid #ddd; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s;">🔗 相關詞彙</button>
+                <button class="thesaurus-tab-btn" onclick="switchThesaurus(event, 'thesaurus-method')" style="background: white; color: #555; border: 1px solid #ddd; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s;">📊 延伸研究方法</button>
+            </div>
+
+            <div class="thesaurus-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--harbor-blue);">
+                
+                <div id="thesaurus-core" class="thesaurus-panel active" style="display: block;">
+                    <h4 style="color: var(--harbor-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">核心詞 (Top Term)</h4>
+                    <div style="margin-bottom: 25px;">
+                        <span class="keyword-tag">觀光</span> / <span class="keyword-tag">Tourism</span>
+                    </div>
+                    <h4 style="color: var(--harbor-blue); margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">廣義詞 (Broader Terms)</h4>
+                    <div>
+                        <span class="keyword-tag">產業經濟</span>
+                        <span class="keyword-tag">社會變遷</span>
+                        <span class="keyword-tag">區域發展</span>
+                    </div>
+                </div>
+
+                <div id="thesaurus-narrow" class="thesaurus-panel" style="display: none;">
+                    <h4 style="color: var(--harbor-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">觀光型態</h4>
+                    <div style="margin-bottom: 25px;">
+                        <span class="keyword-tag">文化觀光</span>
+                        <span class="keyword-tag">永續觀光</span>
+                        <span class="keyword-tag">生態旅遊</span>
+                    </div>
+                    <h4 style="color: var(--harbor-blue); margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">觀光影響</h4>
+                    <div>
+                        <span class="keyword-tag">過度觀光</span> / <span class="keyword-tag">Overtourism</span>
+                    </div>
+                </div>
+
+                <div id="thesaurus-related" class="thesaurus-panel" style="display: none;">
+                    <h4 style="color: var(--harbor-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">社會與空間感受</h4>
+                    <div style="margin-bottom: 25px;">
+                        <span class="keyword-tag">地方感</span> / <span class="keyword-tag">Sense of Place</span>
+                        <span class="keyword-tag">承載量</span> / <span class="keyword-tag">Carrying Capacity</span>
+                    </div>
+                    <h4 style="color: var(--harbor-blue); margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">產業趨勢</h4>
+                    <div>
+                        <span class="keyword-tag">數位轉型</span>
+                        <span class="keyword-tag">智慧觀光</span>
+                    </div>
+                </div>
+
+                <div id="thesaurus-method" class="thesaurus-panel" style="display: none;">
+                    <h4 style="color: var(--harbor-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">分析維度</h4>
+                    <div style="margin-bottom: 25px;">
+                        <span class="keyword-tag">空間異質性</span>
+                        <span class="keyword-tag">時空影響</span>
+                        <span class="keyword-tag">經濟效益</span>
+                    </div>
+                    <h4 style="color: var(--harbor-blue); margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">研究工具</h4>
+                    <div>
+                        <span class="keyword-tag">GIS空間分析</span>
+                        <span class="keyword-tag">質性訪談</span>
+                        <span class="keyword-tag">田野調查</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // 處理標籤切換
+            function switchThesaurus(event, categoryId) {
+                // 隱藏所有面板
+                const panels = document.querySelectorAll('.thesaurus-panel');
+                panels.forEach(panel => panel.style.display = 'none');
+
+                // 重置所有按鈕樣式
+                const buttons = document.querySelectorAll('.thesaurus-tab-btn');
+                buttons.forEach(btn => {
+                    btn.style.background = 'white';
+                    btn.style.color = '#555';
+                    btn.style.borderColor = '#ddd';
+                });
+
+                // 顯示目標面板
+                document.getElementById(categoryId).style.display = 'block';
+
+                // 設定點擊按鈕為 Active 狀態 (海港藍)
+                event.currentTarget.style.background = 'var(--harbor-blue)';
+                event.currentTarget.style.color = 'white';
+                event.currentTarget.style.borderColor = 'var(--harbor-blue)';
+            }
+
+            // 處理點擊膠囊複製文字
+            document.addEventListener("DOMContentLoaded", () => {
+                const tags = document.querySelectorAll('.keyword-tag');
+                tags.forEach(tag => {
+                    tag.addEventListener('click', function() {
+                        const textToCopy = this.innerText;
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            const originalText = this.innerText;
+                            // 變化樣式：變成暮光橘色並顯示「已複製」
+                            this.style.background = "var(--twilight-orange)";
+                            this.innerText = "✅ 已複製";
+                            // 1秒後恢復原狀
+                            setTimeout(() => {
+                                this.style.background = ""; // 恢復 CSS 中定義的 var(--harbor-blue)
+                                this.innerText = originalText;
+                            }, 1000);
+                        }).catch(err => console.error('複製失敗: ', err));
+                    });
+                });
+            });
+        </script>
+
+        <div id="color-tool-section" style="margin-top: 50px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 25px; flex-wrap: wrap; gap: 10px;">
+                <h3 style="color: var(--harbor-blue); margin: 0;">🎨 內建海報配色小工具 <span style="font-size: 0.9rem; color: #888; font-weight: normal;">(游標移至色塊可查看，點擊即可複製色碼)</span></h3>
+                <button onclick="generateRandomPalettes()" style="background: var(--twilight-orange); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 8px;">
+                    🎲 隨機更換範本配色
+                </button>
+            </div>
+            
+            <div id="palette-grid" style="display: flex; justify-content: center; align-items: center; min-height: 250px;">
+            </div>
+        </div>
+
+        <script>
+            // 預設 12 組具有「淡水、人文、自然」意象的質感配色池
+            const colorPool = [
+                { name: "海港暮光", colors: ["#1A365D", "#2B6CB0", "#ED8936", "#FBD38D"] },
+                { name: "紅毛城古磚", colors: ["#7B2D26", "#C05640", "#EDD4B2", "#4A5D23"] },
+                { name: "淡水河畔", colors: ["#2C7A7B", "#4FD1C5", "#B2F5EA", "#F7FAFC"] },
+                { name: "觀音夕照", colors: ["#97266D", "#D53F8C", "#FBB6CE", "#FEFCBF"] },
+                { name: "老街記憶", colors: ["#5C4033", "#8B5A2B", "#CD853F", "#F5DEB3"] },
+                { name: "文創日系", colors: ["#8FAADC", "#F4B183", "#FFD966", "#A9D08E"] },
+                { name: "馬偕靜謐", colors: ["#2C3E50", "#BDC3C7", "#E0E0E0", "#E74C3C"] },
+                { name: "夏日渡船", colors: ["#00A8CC", "#142850", "#27496D", "#DAE1E7"] },
+                { name: "滬尾砲台", colors: ["#4A4E69", "#9A8C98", "#C9ADA7", "#F2E9E4"] },
+                { name: "沙崙海灘", colors: ["#E2D1C3", "#F5EBE6", "#83A4D4", "#B6FBFF"] },
+                { name: "復古相片", colors: ["#3E363F", "#DD403A", "#D6D5C9", "#B9A44C"] },
+                { name: "青翠山林", colors: ["#2D4A22", "#5A7247", "#D1D6A8", "#FDFCF0"] }
+            ];
+
+            // 判斷顏色深淺以決定文字顏色 (黑/白)
+            function getContrastColor(hex) {
+                if (!hex) return 'black';
+                hex = hex.replace('#', '');
+                const r = parseInt(hex.substr(0, 2), 16);
+                const g = parseInt(hex.substr(2, 2), 16);
+                const b = parseInt(hex.substr(4, 2), 16);
+                const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+                return (yiq >= 128) ? '#333' : '#fff';
+            }
+
+            // 根據顏色與隨機抽中的 index 生成不同的設計範本 HTML
+            function getCardTemplateHTML(palette, templateIndex) {
+                const c = palette.colors;
+                const domColor = c[0]; // 主色
+                const accentColor1 = c[1] || c[0]; // 配色1
+                const accentColor2 = c[2] || c[1]; // 配色2
+                const bgColor = c[3] || '#f9f9f9'; // 背景色
+
+                let cardContent = '';
+
+                if (templateIndex === 0) {
+                    // 範本 1: 旅遊海報 (TRAVEL VLOG 風格)
+                    cardContent = `
+                        <div style="background: ${bgColor}; border: 2px solid ${domColor}; border-radius: 8px; overflow: hidden; font-family: 'Times New Roman', serif;">
+                            <div style="background: ${domColor}; color: ${getContrastColor(domColor)}; padding: 15px; text-align: center;">
+                                <span style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.8;">TAMSUI | TAIWAN</span>
+                                <h3 style="margin: 5px 0 0 0; font-size: 1.4rem; font-weight: bold;">旅遊海報範本</h3>
+                            </div>
+                            <div style="padding: 20px; color: ${getContrastColor(bgColor)};">
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                    <div style="flex: 1; height: 60px; background: ${accentColor1}; border-radius: 4px;"></div>
+                                    <div style="flex: 1; height: 60px; background: ${accentColor2}; border-radius: 4px;"></div>
+                                </div>
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.6;">淡水老街、金色水岸、觀音夕照...</p>
+                            </div>
+                        </div>
+                    `;
+                } else if (templateIndex === 1) {
+                    // 範本 2: 科展說明板 (Document/Report 風格)
+                    cardContent = `
+                        <div style="background: white; border: 1px solid #eee; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
+                            <div style="border-top: 6px solid ${domColor}; padding-top: 15px; margin-bottom: 15px;">
+                                <h3 style="margin: 0; color: ${domColor}; font-size: 1.25rem;">科展報告書範本</h3>
+                                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">研究方法與數據分析</p>
+                            </div>
+                            <ul style="list-style-type: none; padding: 0; margin: 0 0 15px 0; color: #444; font-size: 0.85rem; line-height: 2;">
+                                <li style="border-left: 3px solid ${accentColor1}; padding-left: 10px; margin-bottom: 5px;">☑️ 探討觀光效益之理性數據</li>
+                                <li style="border-left: 3px solid ${accentColor2}; padding-left: 10px;">☑️ 了解環境景觀之感性影響</li>
+                            </ul>
+                            <div style="height: 15px; background: ${bgColor}; border-radius: 20px; position: relative;">
+                                <div style="position: absolute; left: 0; top: 0; height: 100%; width: 70%; background: ${accentColor1}; border-radius: 20px;"></div>
+                            </div>
+                        </div>
+                    `;
+                } else if (templateIndex === 2) {
+                    // 範本 3: 人文地圖 (Cultural Map 風格)
+                    cardContent = `
+                        <div style="background: ${bgColor}; color: #333; border-radius: 8px; border-left: 8px solid ${accentColor1}; padding: 20px; display: flex; gap: 15px; align-items: center;">
+                            <div style="flex: 0 0 70px; height: 70px; background: white; border: 4px solid ${domColor}; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: ${domColor}; font-size: 2rem;">🗺️</div>
+                            <div style="flex: 1;">
+                                <h3 style="margin: 0; color: ${domColor}; font-size: 1.2rem;">人文地圖設計</h3>
+                                <p style="margin: 5px 0 0 0; color: #555; font-size: 0.85rem; line-height: 1.5;">標記紅毛城、砲台、馬偕靜謐等地點。</p>
+                                <div style="display: flex; gap: 5px; margin-top: 10px;">
+                                    <span style="display: inline-block; width: 30px; height: 5px; background: ${domColor}; border-radius: 2px;"></span>
+                                    <span style="display: inline-block; width: 60px; height: 5px; background: ${accentColor2}; border-radius: 2px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // 範本 4: 簡報頁面 (Tech/Presentation 風格)
+                    cardContent = `
+                        <div style="background: #2c3e50; color: white; border-radius: 8px; padding: 20px; font-family: sans-serif; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: ${domColor}; border-radius: 50%; opacity: 0.6;"></div>
+                            <div style="position: absolute; bottom: 10px; right: 40px; width: 30px; height: 30px; background: ${accentColor2}; border-radius: 50%; opacity: 0.8;"></div>
+                            <span style="background: ${accentColor1}; color: ${getContrastColor(accentColor1)}; padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px;">PRESENTATION</span>
+                            <h3 style="margin: 10px 0 0 0; font-size: 1.3rem;">簡報頁面範本</h3>
+                            <p style="margin: 8px 0 0 0; color: #ccc; font-size: 0.85rem;">動機與目的 Motivation</p>
+                        </div>
+                    `;
+                }
+
+                // 【修改】加入 width: 100%; max-width: 450px; 限制單張卡片的寬度，保持版面優雅
+                return `
+                    <div style="width: 100%; max-width: 450px; background: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); overflow: hidden; border: 1px solid #eee; display: flex; flex-direction: column; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="padding: 20px; flex: 1;">
+                            ${cardContent}
+                        </div>
+                        
+                        <div style="background: #fafafa; border-top: 1px solid #eee;">
+                            <p style="margin: 0; padding: 10px 15px; color: var(--harbor-blue); font-size: 0.95rem; text-align: center; font-weight: bold; border-bottom: 1px solid #eee;">【${palette.name}】色票池</p>
+                            <div style="display: flex; height: 50px;">
+                                ${c.map(hex => `
+                                    <div class="color-block" style="flex: 1; background-color: ${hex}; cursor: pointer; display: flex; justify-content: center; align-items: center; position: relative; transition: flex 0.2s;" onmouseover="this.style.flex='1.5'" onmouseout="this.style.flex='1'" onclick="copyColorToClipboard('${hex}', this)">
+                                        <span class="hex-text" style="color: white; text-shadow: 0px 1px 4px rgba(0,0,0,0.8); font-size: 0.85rem; font-family: monospace; font-weight: bold; opacity: 0; transition: opacity 0.2s; pointer-events: none;">${hex}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // 【修改】每次只生成 1 組隨機範本
+            function generateRandomPalettes() {
+                // 將配色池隨機打亂，並取出第 1 組
+                const shuffled = [...colorPool].sort(() => 0.5 - Math.random());
+                const selectedPalette = shuffled[0];
+                
+                // 隨機決定 4 種排版範本中的其中 1 種 (產生 0, 1, 2, 3 的隨機數)
+                const randomTemplateStyle = Math.floor(Math.random() * 4);
+
+                const grid = document.getElementById('palette-grid');
+                // 直接將這 1 張卡片插入網格容器中
+                grid.innerHTML = getCardTemplateHTML(selectedPalette, randomTemplateStyle);
+            }
+
+            // 點擊事件：寫入剪貼簿 (複製色碼)
+            function copyColorToClipboard(hex, element) {
+                navigator.clipboard.writeText(hex).then(() => {
+                    const hexText = element.querySelector('.hex-text');
+                    const oldHex = hexText.innerText;
+                    hexText.innerText = "已複製!";
+                    hexText.style.opacity = "1";
+                    
+                    // 1.5秒後恢復原狀
+                    setTimeout(() => {
+                        hexText.innerText = oldHex;
+                        if (!element.matches(':hover')) {
+                            hexText.style.opacity = "0";
+                        }
+                    }, 1500);
+
+                }).catch(err => {
+                    console.error('複製失敗: ', err);
+                });
+            }
+
+            // 添加專屬 CSS 到 head (處理 hover 效果)
+            const style = document.createElement('style');
+            style.textContent = `
+                .color-block:hover .hex-text {
+                    opacity: 1 !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // 確保網頁一載入完成就先自動生成 1 組範本
+            document.addEventListener("DOMContentLoaded", generateRandomPalettes);
+        </script>
+    </main>
+
+    <footer class="site-footer">
+        <p>人文科展暨小論文資訊平台 © 2026 第六組 | 淡水地區觀光之效益與影響探討</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
